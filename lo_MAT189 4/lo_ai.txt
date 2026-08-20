@@ -1,0 +1,6 @@
+Model provider (Google, Anthropic, OpenAI…) used: OpenAI 
+Model name and version: ChatGPT free version GPT-5.6 Luna (name and version)
+App/Interface used (Claude Code, Claude desktop, ChatGPT web, Cursor…) and
+a share link to the raw conversation (see exporting-conversations.md)
+(Claude Code users: add the file you get from /export. ): ChatGPT Web, https://chatgpt.com/share/6a7d612a-acf4-83e8-ada6-6f101fd86853 
+note: the lo_ai.pdf is scuffed bc I could not figure out a way to print the whole chat, even after multiple hours of testing things including but not limited to cmd + p (as suggested in the hmwk assignment), asking for export data from OpenAI, and trying to get the backend information from OpenAI website via web developer console + network. 
