@@ -206,14 +206,15 @@ The purpose of this presentation was to display my understanding and execution o
 
   const pdf = await pdfjsLib.getDocument("../media/lo_supercraft_05.pdf").promise;
 
-  const page = await pdf.getPage(1);
-
 const container = document.getElementById("pdfjs-test");
 
-const unscaledViewport = page.getViewport({ scale: 1 });
-const scale = container.clientWidth / unscaledViewport.width;
+for (let pageNumber = 1; pageNumber <= pdf.numPages; pageNumber++) {
+  const page = await pdf.getPage(pageNumber);
 
-const viewport = page.getViewport({ scale });
+  const unscaledViewport = page.getViewport({ scale: 1 });
+  const scale = container.clientWidth / unscaledViewport.width;
+
+  const viewport = page.getViewport({ scale });
 
   const canvas = document.createElement("canvas");
   const context = canvas.getContext("2d");
@@ -221,12 +222,13 @@ const viewport = page.getViewport({ scale });
   canvas.width = viewport.width;
   canvas.height = viewport.height;
 
-  document.getElementById("pdfjs-test").appendChild(canvas);
+  container.appendChild(canvas);
 
   await page.render({
     canvasContext: context,
     viewport: viewport
   }).promise;
+}
 </script>
   
 </body>
