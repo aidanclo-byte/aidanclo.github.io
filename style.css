@@ -253,7 +253,7 @@ footer {
 @media (max-width: 800px) {
 
   .hero {
-    min-height: 75vh;
+    min-height: 50vh;
   }
 
 
