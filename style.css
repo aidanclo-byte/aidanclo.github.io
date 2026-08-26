@@ -249,6 +249,18 @@ footer {
    DARK MODE
 ========================================================= */
 
+.projects-heading h2 {
+  color: #8000ff;
+  border: 1px solid #ffd900;
+  padding: 6px 10px;
+  display: inline-block;
+}
+
+body.dark-mode .projects-heading h2 {
+  color: #ffd900;
+  border-color: #8000ff;
+}
+
 body.dark-mode {
   color: #fff;
 }
