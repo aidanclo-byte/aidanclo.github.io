@@ -237,7 +237,31 @@ The purpose of this presentation was to educate an audience (the class) about a 
 
   const container = document.getElementById("pdfjs-test");
 
+  const pages = [];
+
+  // Create a placeholder for every page
   for (let pageNumber = 1; pageNumber <= pdf.numPages; pageNumber++) {
+    const placeholder = document.createElement("div");
+
+    placeholder.dataset.pageNumber = pageNumber;
+    placeholder.style.width = "100%";
+    placeholder.style.minHeight = "500px";
+
+    container.appendChild(placeholder);
+
+    pages.push(placeholder);
+  }
+
+  async function renderPage(pageNumber) {
+    const placeholder = pages[pageNumber - 1];
+
+    // Don't render the same page twice
+    if (placeholder.dataset.rendered === "true") {
+      return;
+    }
+
+    placeholder.dataset.rendered = "true";
+
     const page = await pdf.getPage(pageNumber);
 
     const unscaledViewport = page.getViewport({ scale: 1 });
@@ -253,13 +277,41 @@ The purpose of this presentation was to educate an audience (the class) about a 
     canvas.width = viewport.width;
     canvas.height = viewport.height;
 
-    container.appendChild(canvas);
+    canvas.style.display = "block";
+    canvas.style.width = "100%";
+    canvas.style.height = "auto";
+
+    placeholder.style.minHeight = "0";
+
+    placeholder.appendChild(canvas);
 
     await page.render({
       canvasContext: context,
       viewport: viewport
     }).promise;
   }
+
+  // Render the first page immediately
+  await renderPage(1);
+
+  // Render pages when they get close to the screen
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const pageNumber =
+            Number(entry.target.dataset.pageNumber);
+
+          renderPage(pageNumber);
+        }
+      });
+    },
+    {
+      rootMargin: "1500px 0px"
+    }
+  );
+
+  pages.forEach(page => observer.observe(page));
 </script>
   
 </body>
