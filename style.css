@@ -251,12 +251,14 @@ footer {
 
 .projects-heading h2 {
   color: #8000ff;
-  -webkit-text-stroke: 1px #ffd900;
+  text-shadow:
+    0 0 1px #ffd900;
 }
 
 body.dark-mode .projects-heading h2 {
   color: #ffd900;
-  -webkit-text-stroke: 1px #8000ff;
+  text-shadow:
+    0 0 1px #8000ff;
 }
 
 body.dark-mode {
