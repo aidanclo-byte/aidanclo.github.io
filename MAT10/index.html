@@ -222,31 +222,87 @@ The purpose of this presentation was to display my understanding and execution o
   pdfjsLib.GlobalWorkerOptions.workerSrc =
     "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/5.4.149/pdf.worker.min.mjs";
 
-  const pdf = await pdfjsLib.getDocument("../media/lo_supercraft_05.pdf").promise;
+  const pdf = await pdfjsLib.getDocument(
+    "../media/lo_concepts_02.pdf"
+  ).promise;
 
-const container = document.getElementById("pdfjs-test");
+  const container = document.getElementById("pdfjs-test");
 
-for (let pageNumber = 1; pageNumber <= pdf.numPages; pageNumber++) {
-  const page = await pdf.getPage(pageNumber);
+  const pages = [];
 
-  const unscaledViewport = page.getViewport({ scale: 1 });
-  const scale = container.clientWidth / unscaledViewport.width;
+  // Create a placeholder for every page
+  for (let pageNumber = 1; pageNumber <= pdf.numPages; pageNumber++) {
+    const placeholder = document.createElement("div");
 
-  const viewport = page.getViewport({ scale });
+    placeholder.dataset.pageNumber = pageNumber;
+    placeholder.style.width = "100%";
+    placeholder.style.minHeight = "500px";
 
-  const canvas = document.createElement("canvas");
-  const context = canvas.getContext("2d");
+    container.appendChild(placeholder);
 
-  canvas.width = viewport.width;
-  canvas.height = viewport.height;
+    pages.push(placeholder);
+  }
 
-  container.appendChild(canvas);
+  async function renderPage(pageNumber) {
+    const placeholder = pages[pageNumber - 1];
 
-  await page.render({
-    canvasContext: context,
-    viewport: viewport
-  }).promise;
-}
+    // Don't render the same page twice
+    if (placeholder.dataset.rendered === "true") {
+      return;
+    }
+
+    placeholder.dataset.rendered = "true";
+
+    const page = await pdf.getPage(pageNumber);
+
+    const unscaledViewport = page.getViewport({ scale: 1 });
+
+    const scale =
+      container.clientWidth / unscaledViewport.width;
+
+    const viewport = page.getViewport({ scale });
+
+    const canvas = document.createElement("canvas");
+    const context = canvas.getContext("2d");
+
+    canvas.width = viewport.width;
+    canvas.height = viewport.height;
+
+    canvas.style.display = "block";
+    canvas.style.width = "100%";
+    canvas.style.height = "auto";
+
+    placeholder.style.minHeight = "0";
+
+    placeholder.appendChild(canvas);
+
+    await page.render({
+      canvasContext: context,
+      viewport: viewport
+    }).promise;
+  }
+
+  // Render the first page immediately
+  await renderPage(1);
+
+  // Render pages when they get close to the screen
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const pageNumber =
+            Number(entry.target.dataset.pageNumber);
+
+          renderPage(pageNumber);
+        }
+      });
+    },
+    {
+      rootMargin: "1500px 0px"
+    }
+  );
+
+  pages.forEach(page => observer.observe(page));
 </script>
   
 </body>
