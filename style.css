@@ -245,6 +245,78 @@ footer {
   border-top: 1px solid #ddd;
 }
 
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+body.dark-mode {
+  color: #fff;
+}
+
+body.dark-mode .hero {
+  background: #111;
+}
+
+body.dark-mode .project-card {
+  color: #fff;
+
+  background: #222;
+
+  border-color: #444;
+}
+
+body.dark-mode .project-card:hover {
+  background: #fff;
+  color: #111;
+}
+
+body.dark-mode footer {
+  color: #aaa;
+  border-color: #444;
+}
+
+
+/* =========================================================
+   THEME TOGGLE
+========================================================= */
+
+.theme-toggle {
+  position: fixed;
+
+  top: 20px;
+  right: 20px;
+
+  z-index: 1000;
+
+  width: 42px;
+  height: 42px;
+
+  border: 2px solid #8000ff;
+  border-radius: 50%;
+
+  background: #ffd900;
+  color: #111;
+
+  font-size: 20px;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+body.dark-mode .theme-toggle {
+  background: #8000ff;
+  color: #fff;
+  border-color: #ffd900;
+}
+
 
 /* =========================================================
    MOBILE
