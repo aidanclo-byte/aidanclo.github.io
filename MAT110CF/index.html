@@ -111,6 +111,32 @@
 .mobile-pdf {
   display: none;
 }
+
+@media (max-width: 600px) {
+  .page {
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+  }
+
+  .pdf-container {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .pdf-container iframe {
+    width: 100%;
+    height: 600px;
+  }
+
+  .desktop-pdf {
+    display: none;
+  }
+
+  .mobile-pdf {
+    display: block;
+  }
+}
     
   </style>
 
