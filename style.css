@@ -251,14 +251,12 @@ footer {
 
 .projects-heading h2 {
   color: #8000ff;
-  border: 1px solid #ffd900;
-  padding: 6px 10px;
-  display: inline-block;
+  -webkit-text-stroke: 1px #ffd900;
 }
 
 body.dark-mode .projects-heading h2 {
   color: #ffd900;
-  border-color: #8000ff;
+  -webkit-text-stroke: 1px #8000ff;
 }
 
 body.dark-mode {
