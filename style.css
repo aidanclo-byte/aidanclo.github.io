@@ -345,6 +345,15 @@ body.dark-mode .theme-toggle {
     min-height: 50vh;
   }
 
+   .hero-content {
+    width: 95%;
+  }
+
+  .hero h1 {
+    font-size: 80px;
+    line-height: 0.85;
+  }
+
 
   .hero-content {
     padding: 70px 0;
