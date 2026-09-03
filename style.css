@@ -358,7 +358,7 @@ body.dark-mode .theme-toggle {
   .hero h1 {
     font-size:
       clamp(
-        60px,
+        50px,
         12vw,
         80px
       );
