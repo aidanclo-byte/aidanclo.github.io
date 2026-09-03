@@ -2,6 +2,8 @@
    BASIC RESET
 ========================================================= */
 
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
+
 * {
   box-sizing: border-box;
 }
@@ -77,6 +79,8 @@ body {
 .hero h1 {
   margin: 0;
 
+font-family: "Playfair Display", serif;
+   
   font-size: clamp(
     70px,
     12vw,
@@ -189,6 +193,8 @@ body {
 .project-card-content h3 {
   margin: 0 0 8px;
 
+font-family: "Playfair Display", serif;
+   
   font-size: clamp(
     32px,
     4vw,
