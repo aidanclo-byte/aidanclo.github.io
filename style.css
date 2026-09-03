@@ -356,7 +356,7 @@ body.dark-mode .theme-toggle {
       clamp(
         60px,
         17vw,
-        110px
+        100px
       );
   }
 
