@@ -349,11 +349,6 @@ body.dark-mode .theme-toggle {
     width: 95%;
   }
 
-  .hero h1 {
-    font-size: 80px;
-    line-height: 0.85;
-  }
-
 
   .hero-content {
     padding: 70px 0;
@@ -363,8 +358,8 @@ body.dark-mode .theme-toggle {
   .hero h1 {
     font-size:
       clamp(
-        60px,
-        17vw,
+        50px,
+        12vw,
         80px
       );
   }
