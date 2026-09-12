@@ -236,6 +236,18 @@ font-family: "Playfair Display", serif;
     translate(6px, -6px);
 }
 
+.project-card-image {
+  width: 75%;
+  height: 160px;
+
+  object-fit: contain;
+  object-position: center;
+
+  display: block;
+  margin: 20px auto;
+
+  flex-shrink: 0;
+}
 
 /* =========================================================
    FOOTER
