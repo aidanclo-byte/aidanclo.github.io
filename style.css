@@ -49,7 +49,11 @@ body {
 
   overflow: hidden;
 
-  background: #fff;
+  background-color: #fff;
+  background-image: url("media/possible light mode hero background.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 
   width: min(1400px, 92%);
   margin: 4vh auto 0;
