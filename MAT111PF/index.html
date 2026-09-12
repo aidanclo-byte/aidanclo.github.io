@@ -1,1 +1,450 @@
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>MAT111PF ~ Aidan Lo</title>
+
+  <style>
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
+    
+    body {
+ margin: 0;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  color: #111;
+
+  background-image: url("../media/rainbow background.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+    }
+
+    .abstract {
+  margin-top: 100px;
+  padding-top: 60px;
+  border-top: 1px solid #ddd;
+
+  max-width: 850px;
+}
+
+.abstract-label {
+  margin: 0 0 20px;
+
+  font-family: "Playfair Display", serif;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+    color: #8000ff;
+}
+
+.abstract h2 {
+  margin: 0 0 40px;
+
+  font-size: clamp(32px, 5vw, 60px);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.abstract p:not(.abstract-label) {
+  font-size: 18px;
+  line-height: 1.7;
+
+  margin: 0 0 25px;
+}
+
+    .page {
+  width: min(1200px, 90%);
+  margin: 4vh auto;
+  padding: 30px;
+  background: #fff;
+      box-sizing: border-box;
+}
+
+    h1 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(48px, 8vw, 100px);
+      line-height: 0.9;
+      letter-spacing: -0.06em;
+      margin: 0 0 30px;
+        color: #8000ff;
+    }
+
+    p {
+      line-height: 1.6;
+      max-width: 800px;
+    }
+
+    .project-description {
+      margin-bottom: 50px;
+      font-size: clamp(16px, 2vw, 24px);
+    }
+
+    .pdf-container {
+      width: 100%;
+    }
+
+#pdfjs-test canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+    
+    iframe {
+      width: 100%;
+      height: 800px;
+      border: none;
+    }
+
+    .back {
+      display: inline-block;
+      margin-bottom: 60px;
+      color: inherit;
+      text-decoration: none;
+      font-size: clamp(16px, 2vw, 24px);
+    }
+
+    .open-pdf {
+  display: inline-block;
+  margin-bottom: 30px;
+  font-size: clamp(20px, 2.5vw, 30px);
+       color: #E65C00;
+}
+
+    .desktop-pdf {
+  display: block;
+}
+
+.mobile-pdf {
+  display: none;
+}
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+body.dark-mode {
+  color: #fff;
+}
+
+    body.dark-mode h1 {
+  color: #ffd900;
+}
+
+body.dark-mode .page {
+  background: #111;
+}
+
+body.dark-mode .abstract {
+  border-color: #444;
+}
+
+body.dark-mode .abstract-label {
+  color: #ffd900;
+}
+    
+body.dark-mode .theme-toggle {
+  background: #8000ff;
+  color: #fff;
+  border-color: #ffd900;
+}
+
+
+/* =========================================================
+   THEME TOGGLE
+========================================================= */
+
+.theme-toggle {
+  position: fixed;
+
+  top: 20px;
+  right: 20px;
+
+  z-index: 1000;
+
+  width: 42px;
+  height: 42px;
+
+  border: 2px solid #8000ff;
+  border-radius: 50%;
+
+  background: #ffd900;
+  color: #111;
+
+  font-size: 20px;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+    
+@media (max-width: 600px) {
+.page {
+  width: 90%;
+  margin: 4vh auto;
+  padding: 20px;
+}
+
+  .pdf-container {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .pdf-container iframe {
+    width: 100%;
+    height: 600px;
+  }
+
+  .desktop-pdf {
+    display: none;
+  }
+
+  .mobile-pdf {
+    display: block;
+  }
+}
+    
+  </style>
+
+<script type="module">
+  import * as pdfjsLib from "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/5.4.149/pdf.min.mjs";
+
+  pdfjsLib.GlobalWorkerOptions.workerSrc =
+    "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/5.4.149/pdf.worker.min.mjs";
+</script>
+  
+</head>
+
+<button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+  ☾
+</button>
+  
+<body>
+
+  <main class="page">
+
+    <a href="../index.html" class="back">
+      ← Back to portfolio
+    </a>
+
+    <h1>
+     iPhone-flashlight adjustable stand
+    </h1>
+
+    <div class="project-description">
+
+      <p>
+        A fabricated product designed to provide a small alternative light source in a dark environment. 
+      </p>
+
+ <p>
+        This project was made for MAT111PF. It is a custom-made phone stand for the iPhone 15 Pro Max and its flashlight. 
+      </p>
+
+    </div>
+
+     <a href="../media/FINAL_PROJECT_VIDEO_SLIDES_MAT111PF.pdf" target="_blank" class="open-pdf">
+    Open PDF of the presentation below in a new tab ↗
+  </a>
+
+    <a href="../media/Final Project Report.pdf" target="_blank" class="open-pdf">
+    Open PDF of the entire report in a new tab (not directly embedded due to size) ↗
+  </a>
+
+ 
+<div class="desktop-pdf">
+
+  <div class="pdf-container">
+
+    <iframe
+      src="../media/FINAL_PROJECT_VIDEO_SLIDES_MAT111PF.pdf#navpanes=0&toolbar=0">
+    </iframe>
+
+  </div>
+
+</div>
+
+<div class="mobile-pdf">
+
+  <div id="pdfjs-test"></div>
+
+</div>
+    
+<section class="abstract">
+
+<p class="abstract-label">PRESENTATION DATE</p>
+  <p>
+    September 10th, 2026
+  </p>
+
+<p class="abstract-label">TITLE</p>
+  <p>
+    iPhone-flashlight adjustable stand
+  </p>
+
+<p class="abstract-label">AUTHOR(S)</p>
+  <p>
+    Aidan Lo 
+  </p>
+  
+  <p class="abstract-label">ABSTRACT</p>
+
+  <p>
+
+This project is a product, its presentation, and its report that touches on a particular demand made by the author, designer, and creator, the final product he made, the process in which he took to get there, and an analysis of his final product, using digital software to design and fabricate.
+  </p>
+
+  <p>
+    It is centered around a product called the "iPhone-flashlight adjustable stand" which securely and stably holds the iPhone 15 Pro Max in 3 different height/angle positions so its flashlight's light can be continously used as a light source for a small area near the stand. 
+   
+  </p>
+
+  <p>
+  The product was initially designed in a dark room with little lighting, finally designed in the UCSB Makerspace, and fabricated at the UCSB Makerspace. The presentation slides and reports were made after in dark rooms using Google Slides and Google Docs respectively. 
+  </p>
+
+  <p>
+The purpose of this product was to securely and stably hold a charging iPhone 15 Pro Max at an angle with minimal human upkeep so its flashlight could be used as an alternative light source in a dark room. 
+The purpose of this product's presentation and report was to educate an audience (the teacher) about a digitally designed and fabricated product made entirely without teacher intervention which could use mobile devices as an alternative light source. 
+
+  </p>
+
+</section>
+
+   
+  </main>
+
+<script type="module">
+  import * as pdfjsLib from "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/5.4.149/pdf.min.mjs";
+
+  pdfjsLib.GlobalWorkerOptions.workerSrc =
+    "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/5.4.149/pdf.worker.min.mjs";
+
+  const pdf = await pdfjsLib.getDocument(
+    "../media/lo_concepts_02.pdf"
+  ).promise;
+
+  const container = document.getElementById("pdfjs-test");
+
+  const pages = [];
+
+  // Create a placeholder for every page
+  for (let pageNumber = 1; pageNumber <= pdf.numPages; pageNumber++) {
+    const placeholder = document.createElement("div");
+
+    placeholder.dataset.pageNumber = pageNumber;
+    placeholder.style.width = "100%";
+    placeholder.style.minHeight = "500px";
+
+    container.appendChild(placeholder);
+
+    pages.push(placeholder);
+  }
+
+  async function renderPage(pageNumber) {
+    const placeholder = pages[pageNumber - 1];
+
+    // Don't render the same page twice
+    if (placeholder.dataset.rendered === "true") {
+      return;
+    }
+
+    placeholder.dataset.rendered = "true";
+
+    const page = await pdf.getPage(pageNumber);
+
+    const unscaledViewport = page.getViewport({ scale: 1 });
+
+    const scale =
+      container.clientWidth / unscaledViewport.width;
+
+    const viewport = page.getViewport({ scale });
+
+    const canvas = document.createElement("canvas");
+    const context = canvas.getContext("2d");
+
+    canvas.width = viewport.width;
+    canvas.height = viewport.height;
+
+    canvas.style.display = "block";
+    canvas.style.width = "100%";
+    canvas.style.height = "auto";
+
+    placeholder.style.minHeight = "0";
+
+    placeholder.appendChild(canvas);
+
+    await page.render({
+      canvasContext: context,
+      viewport: viewport
+    }).promise;
+  }
+
+  // Render the first page immediately
+  await renderPage(1);
+
+  // Render pages when they get close to the screen
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const pageNumber =
+            Number(entry.target.dataset.pageNumber);
+
+          renderPage(pageNumber);
+        }
+      });
+    },
+    {
+      rootMargin: "1500px 0px"
+    }
+  );
+
+  pages.forEach(page => observer.observe(page));
+</script>
+
+<script>
+  const toggle = document.getElementById("theme-toggle");
+
+  const savedTheme = localStorage.getItem("theme");
+
+  if (savedTheme === "dark") {
+    document.body.classList.add("dark-mode");
+    toggle.textContent = "☀";
+  }
+
+  toggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+
+    const darkMode =
+      document.body.classList.contains("dark-mode");
+
+    if (darkMode) {
+      localStorage.setItem("theme", "dark");
+      toggle.textContent = "☀";
+    } else {
+      localStorage.setItem("theme", "light");
+      toggle.textContent = "☾";
+    }
+  });
+</script>
+  
+</body>
+
+</html>
