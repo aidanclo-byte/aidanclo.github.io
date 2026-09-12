@@ -52,7 +52,7 @@ body {
   background-color: #fff;
   background-image: url("media/possible light mode hero background.png");
   background-size: cover;
-  background-position: center;
+  background-position: center top;
   background-repeat: no-repeat;
 
   width: min(1400px, 92%);
