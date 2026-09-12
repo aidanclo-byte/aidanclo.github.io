@@ -240,15 +240,20 @@ font-family: "Playfair Display", serif;
   width: 70%;
   height: 160px;
 
-  object-fit: contain;
-  object-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 20px auto;
+}
+
+.project-card-image img {
+  max-width: 100%;
+  max-height: 100%;
 
   display: block;
-  margin: 20px auto;
 
-  flex-shrink: 0;
-
-border: 3px solid orange
+  border: 3px solid orange;
 }
 
 /* =========================================================
