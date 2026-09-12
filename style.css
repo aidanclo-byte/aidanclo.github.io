@@ -276,6 +276,7 @@ body.dark-mode {
 
 body.dark-mode .hero {
   background: #111;
+   background-image: url("media/possible dark mode hero background.png")
 }
 
 body.dark-mode .project-card {
