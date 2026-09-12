@@ -52,7 +52,7 @@ body {
   background-color: #fff;
   background-image: url("media/possible light mode hero background.png");
   background-size: cover;
-  background-position: center 30%;
+  background-position: center;
   background-repeat: no-repeat;
 
   width: min(1400px, 92%);
@@ -347,6 +347,7 @@ body.dark-mode .theme-toggle {
 
   .hero {
     min-height: 50vh;
+     background-position: center 70%
   }
 
    .hero-content {
