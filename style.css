@@ -247,6 +247,8 @@ font-family: "Playfair Display", serif;
   margin: 20px auto;
 
   flex-shrink: 0;
+
+border: 3px solid orange
 }
 
 /* =========================================================
