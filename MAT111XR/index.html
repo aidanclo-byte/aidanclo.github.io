@@ -90,6 +90,18 @@
       font-size: clamp(16px, 2vw, 24px);
     }
 
+    .video-container {
+  width: 90%;
+  max-width: 900px;
+  margin: 0 auto 50px;
+}
+
+.video-container video {
+  display: block;
+  width: 90%;
+  height: auto;
+}
+
     .pdf-container {
       width: 100%;
     }
@@ -269,10 +281,23 @@ body.dark-mode .theme-toggle {
   Download the .apk file from Google Drive (only works for Oculus / Meta Quest 3 Headset) ↗
 </a>
 
-    <a href="../media/Final Project Report.pdf" target="_blank" class="open-pdf">
-    Open the 3D world in your laptop browser ↗
+<div class="video-container">
+  <video controls playsinline preload="metadata">
+    <source src="../media/compressedgameplayvideo.mp4" type="video/mp4">
+    Your browser does not support the video element.
+  </video>
+</div>
+    
+    <a href="https://drive.google.com/file/d/1VLT0sLlDCeLL5_xZea9DJ7cv8cqK1GNB/view?usp=sharing" target="_blank" class="open-pdf">
+    Open the gameplay video in your laptop browser in Google Drive↗
   </a>
 
+  <a
+  href="https://docs.google.com/forms/d/e/1FAIpQLSc863BB2um-CjdEjTkf6p7P_j7IubTfC2y3GLlEipGtgzIwRQ/viewform?usp=header"
+  target="_blank" class="open-links">
+  Interested in exploring the full project yourself? Contact me and state as "Specific Project Inquiry" on my Google Form.↗
+</a>
+    
          <a href="../media/presentation slides for mat 111xr - aidan and roberto - finals presentation.pdf" target="_blank" class="open-pdf">
     Open PDF of the presentation below in a new tab ↗
   </a>
